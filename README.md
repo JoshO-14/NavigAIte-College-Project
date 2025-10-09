@@ -27,7 +27,7 @@ The goal is to show students where they currently stand, which colleges match th
 
 ---
 
-💡 Impact
+### 💡 Impact
 This tool helps students:
 - Feel more confident in their academic journey
 - Learn how to improve their applications
