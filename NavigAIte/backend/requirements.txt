@@ -2,6 +2,10 @@ fastapi
 uvicorn
 openai
 gspread
+google-auth
 oauth2client
 pdfplumber
 python-dotenv
+requests
+pypdf2 
+tiktoken
