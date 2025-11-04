@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+openai
+gspread
+oauth2client
+pdfplumber
+python-dotenv
