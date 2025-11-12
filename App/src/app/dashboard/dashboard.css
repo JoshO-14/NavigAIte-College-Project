@@ -1,0 +1,87 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 36px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-icon {
+  background: linear-gradient(135deg, #1e84dd, #cbc3de);
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-icon i {
+  font-size: 1rem;
+}
+.brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #1f2937;
+}
+.brand span {
+  color: #6366f1;
+}
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.nav-btn {
+  border: none;
+  background: none;
+  color: #374151;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease-in-out;
+}
+.nav-btn:hover {
+  background: #eff6ff;
+  color: #2563eb;
+}
+.nav-btn.active {
+  background: #2563eb;
+  color: white;
+}
+.profile-btn {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+.logout {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.logout:hover {
+  color: #dc2626;
+  text-decoration: underline;
+}

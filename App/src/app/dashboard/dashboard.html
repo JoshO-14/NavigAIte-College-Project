@@ -1,0 +1,29 @@
+<nav class="navbar">
+  <div class="nav-left">
+    <div class="logo-icon">
+      <i class="fa fa-graduation-cap"></i>
+    </div>
+    <span class="brand">NavigAlte College</span>
+  </div>
+
+  <div class="nav-center">
+    <button routerLink="/home" routerLinkActive="active" class="nav-btn">
+      <i class="fa fa-home"></i> Home
+    </button>
+    <button routerLink="/dashboard" routerLinkActive="active" class="nav-btn">
+      <i class="fa fa-th-large"></i> Dashboard
+    </button>
+    <button routerLink="/advisor" routerLinkActive="active" class="nav-btn">
+      <i class="fa fa-comments"></i> AI Advisor
+    </button>
+    <button routerLink="/profile" routerLinkActive="active" class="nav-btn profile-btn">
+      <i class="fa fa-user"></i> Profile
+    </button>
+  </div>
+
+  <div class="nav-right">
+    <button class="logout" (click)="logout()">
+      <i class="fa fa-sign-out"></i> Logout
+    </button>
+  </div>
+</nav>
