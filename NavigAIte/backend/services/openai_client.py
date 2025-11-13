@@ -1,7 +1,32 @@
-from openai import OpenAI
-import os
+"""Shared OpenAI client helpers for the PDF summarizer."""
 
-client = OpenAI(api_key=os.getenv("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"))
+from __future__ import annotations
+
+import os
+from functools import lru_cache
+from typing import Optional
+
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
+
+
+def _resolve_api_key() -> Optional[str]:
+    """Prefer OPENAI_API_KEY but fall back to legacy OPEN_AI_KEY."""
+    return os.getenv("OPENAI_API_KEY") or os.getenv("OPEN_AI_KEY")
+
+
+@lru_cache(maxsize=1)
+def get_openai_client() -> OpenAI:
+    api_key = _resolve_api_key()
+    if not api_key:
+        raise RuntimeError(
+            "OpenAI API key not configured. Set OPENAI_API_KEY or OPEN_AI_KEY."
+        )
+
+    return OpenAI(api_key=api_key)
+
 
 def summarize_pdf(college_name, pdf_text):
     prompt = f"""
@@ -17,11 +42,11 @@ def summarize_pdf(college_name, pdf_text):
     Then, summarize the insights clearly.
     """
 
-    response = client.chat.completions.create(
+    response = get_openai_client().chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "You are an expert education data analyst."},
-            {"role": "user", "content": prompt + "\n\n" + pdf_text}
+            {"role": "user", "content": prompt + "\n\n" + pdf_text},
         ],
         temperature=0.5,
     )

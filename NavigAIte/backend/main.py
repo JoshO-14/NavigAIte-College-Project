@@ -1,14 +1,11 @@
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-import os
 
 from services.data_loader import load_college_data
 from services.pdf_reader import extract_text_from_pdf
 from services.openai_summarizer import summarize_pdf
 from services.cache_manager import load_cache, save_cache
-from services.chatbot import college_chat
 
 app = FastAPI()
 
@@ -44,19 +41,6 @@ def load_or_generate_cache():
 
     college_cache = cache
     print("Cache ready with", len(college_cache), "colleges.")
-
-
-# Chat request body
-class ChatRequest(BaseModel):
-    message: str
-
-
-@app.post("/chat")
-async def chat_endpoint(req: ChatRequest):
-    user_message = req.message
-    print(f" User asked: {user_message}")
-    reply = college_chat(user_message, college_cache)
-    return {"response": reply}
 
 
 @app.get("/")
