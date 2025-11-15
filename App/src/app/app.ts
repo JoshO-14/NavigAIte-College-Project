@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   imports: [RouterOutlet, LoginComponent, FormsModule], 
   templateUrl: './app.html',
   styleUrls: ['./app.css']
-})
+})  
 export class App {
   protected readonly title = signal('NavigateCollege');
 }
